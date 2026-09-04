@@ -1,0 +1,19 @@
+{
+  "name": "Agricast - AI Agricultural Assistant",
+  "short_name": "Agricast",
+  "description": "AI-powered crop recommendations with voice assistance and market insights",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["agriculture", "productivity", "utilities"],
+  "lang": "en-US"
+}

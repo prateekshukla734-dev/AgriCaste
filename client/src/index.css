@@ -1,0 +1,91 @@
+/* Agricast Agricultural Platform - Modern Tailwind v3 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Agricast Theme - Tailwind v4 Style */
+@variant dark (&:is(.dark, .dark *));
+
+@utility text-crop-green {
+  color: #16a34a;
+}
+
+@utility bg-crop-green {
+  background-color: #16a34a;
+}
+
+@utility border-crop-green {
+  border-color: #16a34a;
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Agricast Custom Components */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm;
+}
+
+.sidebar {
+  @apply bg-white border-r border-gray-200 h-screen w-64 fixed left-0 top-0 overflow-y-auto;
+}
+
+.main-content {
+  @apply ml-64 p-8;
+}
+
+.dashboard-stats {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8;
+}
+
+.crop-recommendation-card {
+  @apply bg-white rounded-lg shadow-sm border-l-4 border-green-500 p-6 mb-4;
+}
+
+.weather-widget {
+  @apply bg-gradient-to-br from-blue-500 to-green-500 text-white rounded-lg p-6;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    @apply transform -translate-x-full transition-transform duration-300 ease-in-out;
+  }
+  
+  .sidebar.open {
+    @apply translate-x-0;
+  }
+  
+  .main-content {
+    @apply ml-0 p-4;
+  }
+  
+  .dashboard-stats {
+    @apply grid-cols-1;
+  }
+}

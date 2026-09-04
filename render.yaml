@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: smart-crop-app
+    env: node
+    buildCommand: |
+      echo "🚀 Starting Agricast build process..."
+      
+      # Install backend dependencies
+      echo "📦 Installing backend dependencies..."
+      cd backend && npm install
+      
+      # Install frontend dependencies with force flag
+      echo "📦 Installing frontend dependencies..."
+      cd ../client
+      npm cache clean --force
+      npm install --force
+      
+      # Explicitly install vite and react plugin
+      echo "🔧 Installing vite and plugins..."
+      npm install vite @vitejs/plugin-react --save-dev --force
+      
+      # Verify vite is available
+      echo "🔍 Checking vite installation..."
+      npx vite --version
+      
+      # Build the React app
+      echo "🏗️ Building React application..."
+      npm run build
+      
+      # Verify build output
+      echo "✅ Build verification..."
+      ls -la dist/
+      
+      echo "🎉 Build process completed!"
+    
+    startCommand: cd backend && npm start
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: ML_SERVICE_URL
+        value: "http://localhost:8000"
