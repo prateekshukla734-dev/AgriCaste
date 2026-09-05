@@ -39,7 +39,7 @@ A comprehensive agricultural platform built with React and Node.js, featuring AI
 
 1. **Clone the repository:**
    ```bash
-   git clone <https://sih-crop-recommendation.onrender.com/>
+   git clone <https://sl1nk.com/2lo39c5>
    cd smart-crop
    ```
 
